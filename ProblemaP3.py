@@ -19,21 +19,21 @@ def funcionPrincipal(m,k):
                 matriz[i][j]=0
             elif j>i:
                 matriz[i][j]=0
-            elif j == 1:
-                matriz[i][j]=1
             elif j == k:
                 if i % k == 0:
                     matriz[i][j]=1
                 else:
                     matriz[i][j]=0
+            elif j == 1:
+                matriz[i][j]=1
             else:
                 for x in range(1, i//j+1):
-                    matriz[i][j] += matriz[i-x*j][j-1]
+                    matriz[i][j] += (matriz[i-x*j][j-1])
             i+=1
         respuesta += matriz[i-1][j]
+        respuesta = respuesta % 998244353
         j+=1
     return respuesta
-
 
 numero_casos = int(sys.stdin.readline())
 for __ in range(numero_casos):
